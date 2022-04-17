@@ -1,2 +1,32 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+from tkinter import *
+from datetime import datetime
+# ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ 
+# From tkinter is for gui and from datetime import date time is anything date/time related.
+
+
+
+
+main = Tk()
+main.title('Time to dip!')
+#^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ 
+# This is what labels the timer.
+
+def update_time(): 
+    format = '%H:%M:%S'
+    now = (datetime.now()).strftime(format)
+    s2 = '18:15:25'
+    string = datetime.strptime(s2, format) - datetime.strptime(now, format)
+    l.config(text=string)
+    l.after(1000,update_time)
+
+# ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^
+# H is hour M minute and S is second.
+l = Label(main, font =('calibri',50,'bold'), background='blue', foreground= 'white')
+l.pack(anchor='center')
+update_time() 
+
+# ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ 
+# Labels the time font and size. 
+
+mainloop()
+
